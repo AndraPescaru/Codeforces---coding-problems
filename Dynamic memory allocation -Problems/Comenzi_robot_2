@@ -1,0 +1,70 @@
+/*
+    Programmer : Anamaria Andra Pescaru
+*/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+typedef long long ll;
+typedef struct lista lista;
+typedef struct node node;
+
+struct node{
+    char *comanda;
+    node *next, *prev;
+};
+
+struct lista{
+        node *cap;
+        int nr_total;
+};
+int main(){
+	
+    FILE *input, *output;
+    input = fopen("input.txt", "rt");
+    output = fopen("output.txt", "wt");
+
+    lista *robot = (lista *)malloc(sizeof(lista));
+    robot->cap = (node *)malloc(sizeof(node));
+    robot->nr_total = 0;
+    robot->cap->comanda = (char *)malloc(100 * sizeof(char));
+    robot->cap->next = NULL;
+    robot->cap->prev = NULL;
+    node *p = robot->cap;
+    while(fscanf(input, "%s", p->comanda) != EOF){
+        robot->nr_total++;
+        p->next = (node *)malloc(sizeof(node));
+        p->next->prev = p;
+        p = p->next;
+        p->next = NULL;
+        p->comanda = (char *)malloc(100 * sizeof(char));
+    }
+    p = robot->cap;
+    for(int i = 1; i <= robot->nr_total; ++i){
+        if(p->comanda[3] == 'r'){
+            if(i <= 2){
+                robot->cap = p->next;
+                robot->nr_total -= i;
+                i = 0;
+            }
+            else{
+                p->next->prev = p->prev->prev;
+                p->prev->prev->next = p->next;
+                robot->nr_total -= 2;
+                i -= 2;
+            }
+        }
+        p = p->next;
+    }
+
+    p = robot->cap;
+    for(int i = 1; i < robot->nr_total; ++i){
+        fprintf(output, "%s\n", p->comanda);
+        p = p->next;
+    }
+    
+    
+
+	return 0;
+}
+
+
