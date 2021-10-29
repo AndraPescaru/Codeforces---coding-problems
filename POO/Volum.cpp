@@ -81,7 +81,7 @@ int main() {
         
         Cutie c1(m_lungime, m_latime, m_inaltime);
         
-        if ((c.get_lungime() > c1.get_latime() && c.get_inaltime() > c1.get_inaltime() && c.get_latime() > c1.get_latime())) {
+        if ((c.get_lungime() > c1.get_lungime() && c.get_inaltime() > c1.get_inaltime() && c.get_latime() > c1.get_latime())) {
             std :: cout << std :: fixed;
             std :: cout << std :: setprecision(3);
             std :: cout << c.Volum() - c1.Volum() << std :: endl;
