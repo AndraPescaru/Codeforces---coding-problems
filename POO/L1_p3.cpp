@@ -44,49 +44,25 @@ class Cutie{
     float get_inaltime(){
         return this -> inaltime;
     }
-    
-    float Volum() {
-        return  get_lungime() * get_latime() * get_inaltime();
-    }
+ 
+    void display() {
+     std :: cout << std :: fixed;
+     std :: cout << std :: setprecision(3);
+     std :: cout << this -> lungime << " "<< this -> latime << " "<< this -> inaltime;
+    {
     
 };
 
 int main() {
     
     float v_lungime, v_latime, v_inaltime;
-    int comanda;
     
     std :: cin >> v_lungime;
     std :: cin >> v_latime;
     std :: cin >> v_inaltime;
-    std :: cin >> comanda;
     
     Cutie c(v_lungime, v_latime, v_inaltime);
-    
-    if (comanda == 1){
-        std :: cout << std :: fixed;
-        std :: cout << std :: setprecision(3);
-        std :: cout << c.Volum() << std :: endl;
-    } else {
-        float m_lungime, m_latime, m_inaltime;
-        
-        std :: cin >> m_lungime;
-        std :: cin >> m_latime;
-        std :: cin >> m_inaltime;
-        
-        Cutie c1(m_lungime, m_latime, m_inaltime);
-        
-        if ((c.get_lungime() > c1.get_lungime() && c.get_inaltime() > c1.get_inaltime() && c.get_latime() > c1.get_latime())) {
-            std :: cout << std :: fixed;
-            std :: cout << std :: setprecision(3);
-            std :: cout << c.Volum() - c1.Volum() << std :: endl;
-        } else {
-            std :: cout << std :: fixed;
-            std :: cout << std :: setprecision(3);
-            std :: cout << c.Volum() << std :: endl;
-        }
-        
-    }
+    c.display();
     
     return 0;
 }
