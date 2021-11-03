@@ -99,37 +99,37 @@ int main() {
         std :: getline(std :: cin, v_nume_autor);
         std :: cout << v_nume_autor << std :: endl;
         for (int i = 1; i <= nr_carti; ++i) {
-            if (v[i]->get_nume_autor() == v_nume_autor) {
-                std :: cout << v[i]->get_titlu() <<", ";
+            if (v[i] -> get_nume_autor() == v_nume_autor) {
+                std :: cout << v[i] -> get_titlu() <<", ";
             }
         }
     }
     
     if (comanda == 2) {
-        int minim = v[1]->get_nr_pagini();
+        int minim = v[1] -> get_nr_pagini();
         int pozitie = 1;
         for (int i = 2; i <= nr_carti; ++i) {
-            if (minim > v[i]->get_nr_pagini()){
-                minim = v[i]->get_nr_pagini();
+            if (minim > v[i] -> get_nr_pagini()){
+                minim = v[i] -> get_nr_pagini();
                 pozitie = i;
             }
         }
         
-        v[pozitie]->display();
+        v[pozitie] -> display();
         
     }
     
     if (comanda == 3) {
-        int maxim = v[1]->get_an_lansare();
+        int maxim = v[1] -> get_an_lansare();
         int pozitie = 1;
         for (int i = 1; i <= nr_carti; ++i) {
-            if (maxim < v[i]->get_an_lansare()) {
-                maxim = v[i]->get_an_lansare();
+            if (maxim < v[i] -> get_an_lansare()) {
+                maxim = v[i] -> get_an_lansare();
                 pozitie = i;
             }
         }
         
-        v[pozitie]->display();
+        v[pozitie] -> display();
     }
 
     return 0;
