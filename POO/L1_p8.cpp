@@ -19,9 +19,7 @@ class Carte {
     int an_lansare, nr_pagini;
     float pret;
 
-    public : Carte(){
-        
-    }
+    public : Carte(){}
     public:
 
     Carte(std :: string titlu, std :: string nume_autor, int an_lansare, int nr_pagini, float pret) {
